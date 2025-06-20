@@ -1,5 +1,28 @@
 /* about.css */
 
+:root { /* ou body { ... } */
+  --primary-color: #0077b6;
+  --secondary-color: #00b4d8;
+  /* ...outras variáveis... */
+
+  --text-color-dark: #333; /* <-- Mude para um cinza escuro ou preto */
+  --text-color-light: #555; /* <-- Mude para um cinza médio */
+  --card-bg: #ffffff; /* Geralmente branco para o modo claro */
+  --bg-light: #f8f9fa; /* Geralmente um branco suave para o modo claro */
+  --shadow-color: rgba(0,0,0,0.1);
+  --search-border-color: #ddd;
+}
+
+body.dark-theme {
+    --text-color-dark: #f0f0f0; /* Branco ou cinza bem claro para o dark theme */
+    --text-color-light: #b0b0b0; /* Cinza claro para o dark theme */
+    --card-bg: #1A273F; /* Azul escuro/quase preto para o dark theme */
+    --bg-light: #1A273F; /* Azul escuro/quase preto para o dark theme */
+    --shadow-color: rgba(0,0,0,0.4);
+    --search-border-color: #3B536E;
+    /* ...outras sobrescrições para o dark theme... */
+  }
+
 .about-page .main-content {
     padding-top: 40px;
     padding-bottom: 60px; /* Mais espaço no final da página */
