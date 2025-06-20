@@ -1,0 +1,279 @@
+/* about.css */
+
+.about-page .main-content {
+    padding-top: 40px;
+    padding-bottom: 60px; /* Mais espaço no final da página */
+}
+
+.about-main .section-title {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.about-section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:last-of-type {
+    margin-bottom: 0; /* Remove margem do último bloco */
+}
+
+.section-subtitle {
+    font-size: 2.2em;
+    color: var(--text-color-dark);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px; /* Espaço para o underline */
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Visão e Missão */
+.vision-mission {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para responsividade */
+    padding-top: 40px; /* Ajuste interno */
+    padding-bottom: 40px;
+}
+
+.about-card {
+    background-color: var(--bg-light); /* Cor de fundo para os cards internos */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    max-width: 45%; /* Para que dois caibam na linha */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra mais leve */
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+    border: 1px solid var(--search-border-color); /* Borda sutil */
+}
+
+body.dark-theme .about-card {
+    background-color: #1A273F;
+    border-color: #3B536E;
+}
+
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card .icon-large {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-card h2 {
+    font-size: 1.8em;
+    color: var(--text-color-dark);
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: var(--text-color-light);
+}
+
+/* Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.value-item {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid var(--search-border-color);
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+}
+
+body.dark-theme .value-item {
+    background-color: #1A273F;
+    border-color: #3B536E;
+}
+
+.value-item:hover {
+    transform: translateY(-3px);
+}
+
+.value-item .icon-small {
+    font-size: 2.2em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.value-item h3 {
+    font-size: 1.4em;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.value-item p {
+    font-size: 0.95em;
+    color: var(--text-color-light);
+    line-height: 1.5;
+}
+
+/* Equipe */
+.team-section {
+    text-align: center;
+}
+
+.team-member-card {
+    display: inline-block; /* Para centralizar */
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+    max-width: 350px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--search-border-color);
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+}
+
+body.dark-theme .team-member-card {
+    background-color: #1A273F;
+    border-color: #3B536E;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(var(--primary-color-rgb, 0, 119, 182), 0.2);
+}
+
+.team-member-card h3 {
+    font-size: 1.6em;
+    color: var(--text-color-dark);
+    margin-bottom: 5px;
+}
+
+.team-member-card .role {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Chamada para Ação */
+.call-to-action {
+    text-align: center;
+    font-size: 1.3em;
+    color: var(--text-color-dark);
+    padding: 40px;
+    margin-top: 60px;
+    background-color: var(--accent-bg); /* Use uma cor de fundo que se destaque */
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-theme .call-to-action {
+    background-color: #0E1A2B; /* Um azul mais escuro para o CTA no dark theme */
+}
+
+.call-to-action p {
+    margin-bottom: 25px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.call-to-action .btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .about-card {
+        max-width: 48%; /* Mais espaço para cada card */
+    }
+}
+
+@media (max-width: 768px) {
+    .vision-mission {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .about-card {
+        max-width: 100%; /* Ocupa a largura total */
+        padding: 25px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+    .about-section {
+        padding: 25px;
+        margin-bottom: 40px;
+    }
+    .section-subtitle {
+        font-size: 1.8em;
+    }
+    .call-to-action {
+        padding: 30px;
+        font-size: 1.1em;
+    }
+    .call-to-action .btn {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-main .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .about-card h2 {
+        font-size: 1.6em;
+    }
+    .about-card p {
+        font-size: 1em;
+    }
+    .value-item h3 {
+        font-size: 1.3em;
+    }
+    .value-item p {
+        font-size: 0.9em;
+    }
+    .team-member-card {
+        padding: 20px;
+    }
+    .team-photo {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,160 @@
+/* library.css */
+
+.library-page .main-content {
+    padding-top: 40px; /* Alinha com a página explorar */
+}
+
+.library-main .section-title {
+    margin-bottom: 30px;
+}
+
+.library-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--search-border-color); /* Linha divisória sutil */
+    padding-bottom: 10px;
+    flex-wrap: wrap; /* Permite que as abas quebrem a linha em telas menores */
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--search-icon-color); /* Cor mais neutra para abas inativas */
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
+    outline: none; /* Remove o contorno de foco padrão */
+}
+
+.tab-button i {
+    margin-right: 8px;
+    font-size: 1.2em;
+    color: var(--search-icon-color); /* Ícones neutros */
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.tab-button:hover i {
+    color: var(--primary-color);
+}
+
+.tab-button.active {
+    color: var(--primary-color); /* Cor de destaque para a aba ativa */
+    transform: translateY(0); /* Garante que a aba ativa não se mova no hover */
+}
+
+.tab-button.active i {
+    color: var(--primary-color);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -12px; /* Ajuste para que a linha fique sobre a borda inferior do container */
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+    display: none; /* Oculta todas as abas por padrão */
+    padding-top: 20px;
+}
+
+.tab-content.active {
+    display: block; /* Mostra apenas a aba ativa */
+}
+
+.tab-content-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    margin-bottom: 30px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.empty-state-message {
+    text-align: center;
+    color: var(--search-icon-color);
+    font-size: 1.1em;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.empty-state-message a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.empty-state-message a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.publish-action-area {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--search-border-color); /* Uma linha tracejada para separar */
+}
+
+/* Responsividade para a biblioteca */
+@media (max-width: 768px) {
+    .library-tabs {
+        justify-content: flex-start; /* Alinha as abas à esquerda em telas menores */
+        overflow-x: auto; /* Adiciona scroll horizontal se houver muitas abas */
+        -webkit-overflow-scrolling: touch; /* Suaviza o scroll em iOS */
+        white-space: nowrap; /* Impede que os botões de aba quebrem */
+        padding-bottom: 15px; /* Espaço para a linha ativa */
+    }
+
+    .tab-button {
+        flex-shrink: 0; /* Evita que os botões encolham */
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+    
+    .tab-button.active::after {
+        bottom: -15px; /* Ajuste para o scroll horizontal */
+    }
+
+    .tab-content-title {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+    .empty-state-message {
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .library-main .section-title {
+        font-size: 2em;
+    }
+    .tab-button {
+        padding: 8px 10px;
+    }
+    .publish-action-area .btn {
+        width: 100%;
+    }
+}

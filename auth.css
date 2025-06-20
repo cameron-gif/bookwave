@@ -1,0 +1,223 @@
+/* auth.css */
+
+.auth-page {
+    /* Garante que o fundo da página de autenticação use a cor correta */
+    background-color: var(--bg-light);
+}
+
+.auth-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--header-height, 90px) - var(--footer-height, 100px)); /* Ajusta a altura mínima */
+    padding: 40px 20px;
+    box-sizing: border-box; /* Inclui padding na altura */
+}
+
+/* Define as alturas do header e footer para o cálculo acima */
+@media (min-width: 1025px) { /* Apenas para desktop */
+    :root {
+        --header-height: 90px; /* Altura aproximada do seu header desktop */
+        --footer-height: 100px; /* Altura aproximada do seu footer */
+    }
+}
+@media (max-width: 1024px) { /* Para tablets e mobile */
+    :root {
+        --header-height: 180px; /* Altura aproximada do header mobile expandido */
+        --footer-height: 150px; /* Ajuste se o footer ficar maior em mobile */
+    }
+}
+
+
+.auth-form-section {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form-section .section-title {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--text-color-dark);
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--search-border-color); /* Usando variável existente */
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: var(--bg-light); /* Fundo do input */
+    color: var(--text-color-dark);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2); /* Será ajustado depois com JS para RGB */
+}
+/* No momento, a sombra do focus será um fallback. Se quisermos exato, precisaríamos de uma nova variável para RGBA. */
+/* Para tema escuro: */
+body.dark-theme .auth-form input {
+    background-color: #1A273F; /* Um pouco mais escuro que o card-bg para contraste */
+    border-color: #3B536E;
+    color: var(--text-color-dark);
+}
+body.dark-theme .auth-form input:focus {
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3);
+}
+
+
+.auth-form input::placeholder {
+    color: var(--search-icon-color); /* Cor do placeholder */
+}
+
+/* Opções de formulário (lembrar senha, esqueceu senha) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+.form-options .forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-options .forgot-password:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+/* Estilo do checkbox personalizado */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--text-color-dark); /* Cor do texto do checkbox */
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--bg-light); /* Fundo do quadrado do checkbox */
+    border: 1px solid var(--search-border-color);
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+body.dark-theme .checkmark {
+    background-color: #1A273F;
+    border-color: #3B536E;
+}
+
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px 28px; /* Ajuste de padding para botão maior */
+}
+
+.auth-switch-text {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: var(--text-color-dark);
+}
+
+.auth-switch-text a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-switch-text a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Responsividade para formulários de autenticação */
+@media (max-width: 600px) {
+    .auth-form-section {
+        padding: 30px 20px;
+    }
+    .auth-form-section .section-title {
+        font-size: 1.8em;
+    }
+    .auth-main {
+        padding: 20px 10px;
+    }
+    .auth-form input {
+        font-size: 0.95em;
+    }
+    .form-options, .auth-switch-text {
+        font-size: 0.9em;
+    }
+}
